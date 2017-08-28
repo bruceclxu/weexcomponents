@@ -1,14 +1,12 @@
 <template>
-  <div :style="{height:`${totalheight}px`}" @androidback="back">
-    <!-- <text class="contenttext" @click="jump('/addresspicker')">选择器</text>
-    <text class="contenttext" @click="jump('/sliderpager')">可滑动的底部菜单栏</text>      -->
-    <router-view style="flex:1;"></router-view>  
-    <!-- <slider style="flex:1;" @change="onchange" :index="page">
+  <div :style="{height:`${totalheight}px`}">
+    <slider style="flex:1;" @change="onchange" :index="page">
       <div class="frame" v-for="img in imageList">
         <image class="image" resize="cover" :src="img.src"></image>
         <text class="contenttext">这是第{{page+1}}页</text>
       </div>
     </slider>
+    <text style="background-color:gray;height:2px;bottom:100px;"/>
     <div class="nav">
       <div class="link" @click="changepage(0)">
         <image id="image1" v-bind:src="src1" class="logo"></image>
@@ -22,7 +20,7 @@
         <image v-bind:src="src3" class="logo"></image>      
         <text class="title" :style="{color:page === 2?'#00BBE4':'gray'}">我的</text>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 <style scoped>
@@ -76,59 +74,54 @@
     text-align: center;
     top: 25px;
     color: 38px;
-    padding: 20px;
     color: red;
   }  
 </style>
 <script>
   export default {
-    // data () {
-    //   return {
-    //     page:0,
-    //     imageList: [
-    //       { src: 'https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg'},
-    //       { src: 'https://gd1.alicdn.com/bao/uploaded/i1/TB1PXJCJFXXXXciXFXXXXXXXXXX_!!0-item_pic.jpg'},
-    //       { src: 'https://gd3.alicdn.com/bao/uploaded/i3/TB1x6hYLXXXXXazXVXXXXXXXXXX_!!0-item_pic.jpg'}
-    //     ],
-    //     src1: "../../assets/home_btn_home_s.png",
-    //     src2: "../../assets/home_btn_rent.png",
-    //     src3: "../../assets/cut.png"
-    //   }
-    // },
-    methods:{
-      jump(path){
-        console.error(path)
-        this.$router.push(path)
-        //  this.page=evtValue.index     
+    data () {
+      return {
+        page:0,
+        imageList: [
+          { src: 'https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg'},
+          { src: 'https://gd1.alicdn.com/bao/uploaded/i1/TB1PXJCJFXXXXciXFXXXXXXXXXX_!!0-item_pic.jpg'},
+          { src: 'https://gd3.alicdn.com/bao/uploaded/i3/TB1x6hYLXXXXXazXVXXXXXXXXXX_!!0-item_pic.jpg'}
+        ],
+        src1: "../../../assets/home_btn_home_s.png",
+        src2: "../../../assets/home_btn_rent.png",
+        src3: "../../../assets/cut.png"
       }
-      // ,
-      // changepage(page){
-      //   this.page=page
-      // }
+    },
+    methods:{
+      onchange(evtValue){
+         this.page=evtValue.index     
+      },
+      changepage(page){
+        this.page=page
+      }
     },
     computed: {
       totalheight(){
         const height = 750/weex.config.env.deviceWidth*weex.config.env.deviceHeight 
         return height-180
-      }
+      },
+      pathchanged(){        
+           var self = this
+            if(self.page === 0){
+              self.src1 = "../../../assets/home_btn_home_s.png"
+              self.src2 = "../../../assets/home_btn_rent.png"
+              self.src3 = "../../../assets/cut.png"
+            }else if(self.page === 1){
+              self.src1 = "../../../assets/home_btn_home.png"
+              self.src2 = "../../../assets/home_btn_rent_s.png"
+              self.src3 = "../../../assets/cut.png"
+            }else if(this.page === 2){
+              self.src1 = "../../../assets/home_btn_home.png"
+              self.src2 = "../../../assets/home_btn_rent.png"
+              self.src3 = "../../../assets/cut_on.png"
+            }     
+        return ''
+      }      
     }
-    //   pathchanged(){        
-    //        var self = this
-    //         if(self.page === 0){
-    //           self.src1 = "../../assets/home_btn_home_s.png"
-    //           self.src2 = "../../assets/home_btn_rent.png"
-    //           self.src3 = "../../assets/cut.png"
-    //         }else if(self.page === 1){
-    //           self.src1 = "../../assets/home_btn_home.png"
-    //           self.src2 = "../../assets/home_btn_rent_s.png"
-    //           self.src3 = "../../assets/cut.png"
-    //         }else if(this.page === 2){
-    //           self.src1 = "../../assets/home_btn_home.png"
-    //           self.src2 = "../../assets/home_btn_rent.png"
-    //           self.src3 = "../../assets/cut_on.png"
-    //         }     
-    //     return ''
-    //   }      
-    // }
   }
 </script>

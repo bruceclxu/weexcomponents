@@ -1,5 +1,12 @@
-import foo from './src/foo.vue'
 import './src/data/config'
+import foo from './src/foo.vue'
+import router from './src/router/router'
+import store from './src/store'
+import { sync } from 'vuex-router-sync'
+import mixins from './src/mixins'
 
-foo.el = '#root'
-export default new Vue(foo);
+sync(store, router)
+Vue.mixin(mixins)
+// foo.el = '#root'
+export default new Vue(Vue.util.extend({ el: '#root', router, store }, foo))
+router.push('/')

@@ -1,8 +1,8 @@
 <template>
-  <div :style="{height:`${totalheight}px`}" @androidback="back">
-    <!-- <text class="contenttext" @click="jump('/addresspicker')">选择器</text>
-    <text class="contenttext" @click="jump('/sliderpager')">可滑动的底部菜单栏</text>      -->
-    <router-view style="flex:1;"></router-view>  
+  <div >
+    <text class="contenttext" @click="jump('/addresspicker')">picker</text>
+    <text class="contenttext" @click="jump('/sliderpager')">pager</text>     
+    <!-- <router-view style="flex:1;"></router-view>   -->
     <!-- <slider style="flex:1;" @change="onchange" :index="page">
       <div class="frame" v-for="img in imageList">
         <image class="image" resize="cover" :src="img.src"></image>

@@ -23,10 +23,10 @@
     name: 'app-header',
     data () {
       return {
-        src1: "../../asserts/home_btn_home_s.png",
-        src2: "../../asserts/home_btn_rent.png",
-        src3: "../../asserts/cut.png",
-        src4: "../../asserts/home_btn_me.png",
+        src1: "../../assets/home_btn_home_s.png",
+        src2: "../../assets/home_btn_rent.png",
+        src3: "../../assets/cut.png",
+        src4: "../../assets/home_btn_me.png",
         isactive1: true,
         isactive2: false,
         isactive3: false,
@@ -40,37 +40,37 @@
       pathchanged(){
            var vm = this
             if(this.path === '1'){
-              vm.src1 = "../../asserts/home_btn_home_s.png"
-              vm.src2 = "../../asserts/home_btn_rent.png"
-              vm.src3 = "../../asserts/cut.png"
-              vm.src4 = "../../asserts/home_btn_me.png" 
+              vm.src1 = "../../assets/home_btn_home_s.png"
+              vm.src2 = "../../assets/home_btn_rent.png"
+              vm.src3 = "../../assets/cut.png"
+              vm.src4 = "../../assets/home_btn_me.png" 
               vm.isactive1=true
               vm.isactive2=false
               vm.isactive3=false
               vm.isactive4=false   
             }else if(this.path === '2'){
-              vm.src1 = "../../asserts/home_btn_home.png"
-              vm.src2 = "../../asserts/home_btn_rent_s.png"
-              vm.src3 = "../../asserts/cut.png"
-              vm.src4 = "../../asserts/home_btn_me.png" 
+              vm.src1 = "../../assets/home_btn_home.png"
+              vm.src2 = "../../assets/home_btn_rent_s.png"
+              vm.src3 = "../../assets/cut.png"
+              vm.src4 = "../../assets/home_btn_me.png" 
               vm.isactive1=false
               vm.isactive2=true
               vm.isactive3=false
               vm.isactive4=false               
             }else if(this.path === '3'){
-              vm.src1 = "../../asserts/home_btn_home.png"
-              vm.src2 = "../../asserts/home_btn_rent.png"
-              vm.src3 = "../../asserts/cut_on.png"
-              vm.src4 = "../../asserts/home_btn_me.png"
+              vm.src1 = "../../assets/home_btn_home.png"
+              vm.src2 = "../../assets/home_btn_rent.png"
+              vm.src3 = "../../assets/cut_on.png"
+              vm.src4 = "../../assets/home_btn_me.png"
               vm.isactive1=false
               vm.isactive2=false
               vm.isactive3=true
               vm.isactive4=false    
             }else if(this.path==='4'){
-              vm.src1 = "../../asserts/home_btn_home.png"
-              vm.src2 = "../../asserts/home_btn_rent.png"
-              vm.src3 = "../../asserts/cut.png"
-              vm.src4 = "../../asserts/home_btn_me_s.png" 
+              vm.src1 = "../../assets/home_btn_home.png"
+              vm.src2 = "../../assets/home_btn_rent.png"
+              vm.src3 = "../../assets/cut.png"
+              vm.src4 = "../../assets/home_btn_me_s.png" 
               vm.isactive1=false
               vm.isactive2=false
               vm.isactive3=false
