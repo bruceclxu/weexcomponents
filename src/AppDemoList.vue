@@ -1,7 +1,8 @@
 <template>
-  <div >
+  <div >        
+    <text class="contenttext" @click="jump('/buttonview')">button</text>   
     <text class="contenttext" @click="jump('/addresspicker')">picker</text>
-    <text class="contenttext" @click="jump('/sliderpager')">pager</text>     
+    <text class="contenttext" @click="jump('/sliderpager')">pager</text>    
     <!-- <router-view style="flex:1;"></router-view>   -->
     <!-- <slider style="flex:1;" @change="onchange" :index="page">
       <div class="frame" v-for="img in imageList">
