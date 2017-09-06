@@ -8,19 +8,21 @@
         </cell>      
       </list>
     <!--list 瀑布流放食谱信息-->
-    <div class="scroller" :style="{height:`${totalheight}px`}" >
+    <!-- <div class="scroller" :style="{height:`${totalheight}px`}" >
       <nodata v-if="$store.state.peoplefoodList.length === 0" style="width:600px;border-top-width: 2px;border-top-style: solid; border-top-color: #DDDDDD;" @click="refresh()"/>
       <waterfall v-if="$store.state.peoplefoodList.length !== 0" style="width:600px;border-top-width: 2px;border-top-style: solid; border-top-color: #DDDDDD;" :style="{height:`${totalheight}px`}" column-width="290px" column-count="2" >      
-        <!-- <refresh class="refresh" @refresh="onrefresh" @pullingdown="onpullingdown" :display="refreshing ? 'show' : 'hide'">
-          <loading-indicator class="indicator"></loading-indicator>
-          <text class="refreshText">{{refreshText}}</text>
-        </refresh>  -->
-        <!-- 没有数据情况 -->
         <cell v-for="itemfood in $store.state.peoplefoodList" :key="itemfood.id" append="tree">
           <foodcellv :fooditem="itemfood"></foodcellv>
         </cell>
       </waterfall>    
-    </div>
+    </div> -->
+    <scroller class="scroller" :style="{height:`${totalheight}px`}" v-if="typeof($store.state.classeslist[selectindex]) !== 'undefined'">
+      <nodata v-if="$store.state.peoplefoodList.length === 0" style="width:600px;border-top-width: 2px;border-top-style: solid; border-top-color: #DDDDDD;" @click="refresh()"/>      
+      <div class="rightbox"  >     
+          <!-- <text class="smallclassitem" v-for="item in $store.state.classeslist[selectindex].list"  :item="item">{{item.name}}</text> -->
+          <foodcellv v-for="fooditem in $store.state.peoplefoodList" :fooditem="fooditem" :key="fooditem.id"></foodcellv>      
+      </div>
+    </scroller>    
   </div>
 
 </template>
@@ -43,14 +45,12 @@
     width: 40;
     margin-right: 30;
   }
-
-
   .box {
     flex-direction: row;
     width: 750px;
   }
   .rightbox{
-    width:550px;
+    width:600px;
     flex-direction: row;
     border-top-width: 2px;
     border-top-style: solid; 
@@ -240,7 +240,7 @@
         }).then(data => {
           if(data.status === '0'){
             // 请求成功 初始瀑布流信息 
-            console.error(JSON.stringify(data.result))
+            // console.error(JSON.stringify(data.result))
             _self.$store.state.peoplefoodList = data.result.list
             
           }

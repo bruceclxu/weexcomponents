@@ -40,8 +40,8 @@
   }
   .classitem{
     width:200px;
-    padding-top:50px;
-    padding-bottom:50px;
+    margin-top:50px;
+    margin-bottom:50px;
     text-align: center; 
     font-size: 42px;
   }
@@ -49,7 +49,7 @@
     padding:20px;
     margin: 20px;
     text-align: center; 
-    font-size: 32px;
+    font-size: 25px;
     background-color: #FF00FF;
     border-radius: 25px;
     color:white;
@@ -82,7 +82,7 @@
             // 请求成功 初始化列表信息
             data.result[_self.selectindex].isactive = true
             _self.$store.state.classeslist = data.result
-            console.error(JSON.stringify(data))
+            // console.error(JSON.stringify(data))
           }
         })
       },

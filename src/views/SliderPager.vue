@@ -1,13 +1,13 @@
 <template>
   <div :style="{height:`${totalheight}px`}">
-    <slider style="flex:1;" @change="onchange" :index="page">
-      <div class="frame" :style="{height:`${totalheight}px`}" v-for="(item, index) in menulist">
+    <!-- <slider style="flex:1;" @change="onchange" :index="page" infinite="false"> -->
+      <div class="frame" :style="{height:`${totalheight}px`}">
         <!-- 这里面放每一个菜单 '分类','列表','宝宝食谱'  -->
-        <classes v-if="index === 0"></classes>
-        <listview v-if="index === 1"></listview>
-        <babyfoods v-if="index === 2"></babyfoods>
+        <classes style="width:750px;" v-if="page === 0"></classes>
+        <listview style="width:750px;" v-if="page === 1"></listview>
+        <babyfoods style="width:750px;" v-if="page === 2"></babyfoods>
       </div>
-    </slider>
+    <!-- </slider> -->
     <text style="background-color:gray;height:2px;bottom:100px;"/>
     <div class="nav">
       <div class="link" @click="changepage(0)">
@@ -50,6 +50,7 @@
   .nav {
     position: absolute;
     width: 750px;
+    height: 100px;
     bottom: 0px;
     background-color:white;
     flex-direction: row;

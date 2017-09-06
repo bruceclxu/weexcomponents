@@ -16,7 +16,7 @@ Vue.use(Router)
 export default new Router({
   // mode: 'abstract',
   routes: [
-    // { path: '/foo', component: foo },  
+    { path: '/app', component: app },  
     { path: '/addresspicker', component: AddressPicker }, 
     { path: '/sliderpager', component: SliderPager },  
     { path: '/demolist', component: AppDemoList },    

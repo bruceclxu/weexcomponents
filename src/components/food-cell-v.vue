@@ -112,7 +112,7 @@
     // },
     computed: {
       tags(){
-        console.error(this.fooditem)
+        // console.error(this.fooditem)
         console.error(JSON.stringify(this.fooditem))
         return this.fooditem.tag.split(",")
       }
